@@ -13,35 +13,23 @@
 
             body {
                 display:         flex;
-                flex-direction:  column;
+                flex-direction:  row;
                 justify-content: center;
-                align-items:     center;
+                align-items:     stretch;
                 background-color: #e6e6e6;
             }
 
-            #clock {
-                display:         flex;
-                flex-direction:  row;
-                justify-content: center;
-                align-items:     center;
-            }
-
             .color {
-                width:  100px;
-                height: 150px;
+                flex-grow: 1;
+                margin: 1%;
                 border: 1px solid #262626;
-                border-radius: 2px;
-            }
-
-            span {
-                font-size: 3em;
-                color: #262626;
+                /* border-radius: 2px; */
             }
         </style>
 
         <script>
             window.onload = function() {
-                window.setInterval(tick, 10)
+                window.setInterval(tick, 250)
             }
 
             function tick() {
@@ -65,7 +53,9 @@
                     max  = data[unit].max
                     hue  = getHue(val, max)
                     
-                    elem.style.backgroundColor = 'hsl(' + hue + ', 50%, 50%)'
+                    if(!elem) { return }
+                    //elem.innerText = '* '.repeat(val)
+                    elem.style.backgroundColor = 'hsl(' + hue + ', 70%, 60%)'
                 }
             }
 
@@ -76,14 +66,9 @@
     </head>
 
     <body>
-        <div id='clock'>
-            <div class='color' id='hr'></div>
-            <div><span>:</span></div>
-            <div class='color' id='min'></div>
-            <div><span>:</span></div>
-            <div class='color' id='sec'></div>
-            <div><span>.</span></div>
-            <div class='color' id='ms'></div>
-        </div>
+        <div class='color' id='hr' ></div>
+        <div class='color' id='min'></div>
+        <div class='color' id='sec'></div>
+        <!-- <div class='color' id='ms' ></div> -->
     </body>
 </html>
