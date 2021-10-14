@@ -17,13 +17,15 @@
                 justify-content: center;
                 align-items:     stretch;
                 background-color: #e6e6e6;
+                padding: 0 0.67%;
             }
 
             .color {
-                flex-grow: 1;
-                margin: 1%;
-                border: 1px solid #262626;
-                /* border-radius: 2px; */
+                width:   32%;
+                margin:  1.33% 0.67%;
+                padding: 0.67%;
+                border:  1px solid #262626;
+                text-align: center;
             }
         </style>
 
@@ -54,8 +56,9 @@
                     hue  = getHue(val, max)
                     
                     if(!elem) { return }
-                    //elem.innerText = '* '.repeat(val)
+                    elem.innerText = '● '.repeat(val)
                     elem.style.backgroundColor = 'hsl(' + hue + ', 70%, 60%)'
+                    elem.style.color = 'hsl(' + hue + ', 70%, 40%)'
                 }
             }
 
